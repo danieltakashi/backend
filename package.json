@@ -5,10 +5,10 @@
   "main": "build/index.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "dev": "NODE_ENV=development ts-node-dev --respawn --transpile-only ./src/index.ts",
     "start": "tsc && node build/index.js",
-    "test": "cross-env NODE_ENV=test mocha --exit --recursive --require ts-node/register --timeout=5000 tests/**/*.ts",
-    "test:coverage": "cross-env NODE_ENV=test nyc --require ts-node/register --reporter lcov --reporter text mocha --exit --recursive --timeout=5000 tests/**/*.ts",
+    "test": "cross-env NODE_ENV=test mocha --exit --recursive --require ts-node/register --silient --timeout=5000 src/**/*.ts",
+    "test:coverage": "cross-env NODE_ENV=test nyc --require ts-node/register --reporter lcov --reporter text mocha --silent --exit --recursive --timeout=5000 src/**/*.ts",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix"
   },

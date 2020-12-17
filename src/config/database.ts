@@ -10,7 +10,9 @@ class Database {
     this.DATABASE =
       process.env.NODE_ENV === 'test'
         ? process.env.DATABASE_TEST
-        : process.env.DATABASE;
+          : process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'development'
+            ? process.env.DATABASE_DEVELOPMENT
+              : process.env.DATABASE;
 
     this.logger = Logger.logger;
   }
