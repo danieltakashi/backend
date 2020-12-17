@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 import app from '../../../tests/src/index';
 
-describe('User APIs Test', () => {
+describe('APIs Test', () => {
   before((done) => {
     const clearCollections = () => {
       for (const collection in mongoose.connection.collections) {
