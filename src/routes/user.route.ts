@@ -18,6 +18,7 @@ class UserRoutes {
     this.router.post(
       '',
       this.UserValidator.new,
+      userAuth,
       this.UserController.new
     );
 

@@ -20,7 +20,7 @@ class AuthenticationController {
 
         res.status(HttpStatus.OK).json({
           code: HttpStatus.OK,
-          data: { token: token },
+          data: { Authorization: token },
           message: 'Authenticated successfully'
         });
       } else {

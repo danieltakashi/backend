@@ -9,17 +9,20 @@ export const userAuth = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    let bearerToken = req.header('Authorization');
-    if (!bearerToken)
+    const token = req.header('Authorization');
+    if ( !token ) {
       throw {
         code: HttpStatus.BAD_REQUEST,
         message: 'Authorization token is required'
       };
-    bearerToken = bearerToken.split(' ')[1];
+    }
 
-    const { user }: any = await jwt.verify(bearerToken, process.env.SECRET);
+    const { user }: any = await jwt.verify(token, process.env.SECRET);
+    console.log(user)
+
     res.locals.user = user;
-    res.locals.token = bearerToken;
+    res.locals.token = token;
+
     next();
   } catch (error) {
     next(error);
