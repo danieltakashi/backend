@@ -27,10 +27,10 @@ class UserRoutes {
     this.router.get('/:_id', userAuth, this.UserController.getUser);
 
     //route to update a single user
-    this.router.put('/:_id', this.UserController.updateUser);
+    this.router.put('/:_id', userAuth, this.UserController.updateUser);
 
     //route to delete a single user
-    this.router.delete('/:_id', this.UserController.deleteUser);
+    this.router.delete('/:_id', userAuth, this.UserController.deleteUser);
   };
 
   public getRoutes = (): IRouter => {

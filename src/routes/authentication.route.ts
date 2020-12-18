@@ -12,8 +12,6 @@ class AuthenticationRoutes {
 
   private routes = () => {
     this.router.post('/login', this.AuthenticationController.login);
-
-    //this.router.get('/logout', this.AuthenticationController.logout);
   };
 
   public getRoutes = (): IRouter => {

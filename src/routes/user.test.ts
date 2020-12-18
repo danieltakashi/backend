@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import request from 'supertest';
-import * as mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
 import app from '../index';
 

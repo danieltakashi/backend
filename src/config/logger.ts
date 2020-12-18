@@ -1,4 +1,6 @@
-import winston, { format } from 'winston';
+import * as winston from 'winston';
+import { format } from 'winston';
+
 import 'winston-daily-rotate-file';
 
 class Logger {
