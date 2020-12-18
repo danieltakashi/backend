@@ -13,24 +13,19 @@ class UserRoutes {
   }
 
   private routes = () => {
-    //route to get all users
-    this.router.get('', this.UserController.getAllUsers);
+    this.router.get('', this.UserController.getAll);
 
-    //route to create a new user
     this.router.post(
       '',
-      this.UserValidator.newUser,
-      this.UserController.newUser
+      this.UserValidator.new,
+      this.UserController.new
     );
 
-    //route to get a single user
-    this.router.get('/:_id', userAuth, this.UserController.getUser);
+    this.router.get('/:_id', userAuth, this.UserController.get);
 
-    //route to update a single user
-    this.router.put('/:_id', userAuth, this.UserController.updateUser);
+    this.router.put('/:_id', userAuth, this.UserController.update);
 
-    //route to delete a single user
-    this.router.delete('/:_id', userAuth, this.UserController.deleteUser);
+    this.router.delete('/:_id', userAuth, this.UserController.delete);
   };
 
   public getRoutes = (): IRouter => {

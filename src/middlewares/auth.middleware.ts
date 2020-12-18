@@ -3,14 +3,6 @@ import HttpStatus from 'http-status-codes';
 import * as jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
 
-/**
- * Middleware to authenticate if user has a valid Authorization token
- * Authorization: Bearer <token>
- *
- * @param {Object} req
- * @param {Object} res
- * @param {Function} next
- */
 export const userAuth = async (
   req: Request,
   res: Response,

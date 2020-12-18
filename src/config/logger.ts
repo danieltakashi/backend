@@ -37,8 +37,6 @@ class Logger {
   static logStream = {
     /**
      * A writable stream for winston logger.
-     *
-     * @param {any} message
      */
     write(message) {
       /**

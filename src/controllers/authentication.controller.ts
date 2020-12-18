@@ -15,7 +15,7 @@ class AuthenticationController {
 
       if(user === 'user' && password === '123') {
         const token = jwt.sign({ user }, process.env.SECRET, {
-          expiresIn: 300  // expires in 5min
+          expiresIn: 300  // expiration time == 5min
         });
 
         res.status(HttpStatus.OK).json({

@@ -7,19 +7,13 @@ import { Request, Response, NextFunction } from 'express';
 class UserController {
   public UserService = new userService();
 
-  /**
-   * Controller to get all users available
-   * @param  {object} Request - request object
-   * @param {object} Response - response object
-   * @param {Function} NextFunction
-   */
-  public getAllUsers = async (
+  public getAll = async (
     req: Request,
     res: Response,
     next: NextFunction
   ): Promise<any> => {
     try {
-      const data = await this.UserService.getAllUsers();
+      const data = await this.UserService.getAll();
       res.status(HttpStatus.OK).json({
         code: HttpStatus.OK,
         data: data,
@@ -30,19 +24,13 @@ class UserController {
     }
   };
 
-  /**
-   * Controller to get a user
-   * @param  {object} Request - request object
-   * @param {object} Response - response object
-   * @param {Function} NextFunction
-   */
-  public getUser = async (
+  public get = async (
     req: Request,
     res: Response,
     next: NextFunction
   ): Promise<any> => {
     try {
-      const data = await this.UserService.getUser(req.params._id);
+      const data = await this.UserService.get(req.params._id);
       res.status(HttpStatus.OK).json({
         code: HttpStatus.OK,
         data: data,
@@ -53,19 +41,13 @@ class UserController {
     }
   };
 
-  /**
-   * Controller to create new user
-   * @param  {object} Request - request object
-   * @param {object} Response - response object
-   * @param {Function} NextFunction
-   */
-  public newUser = async (
+  public new = async (
     req: Request,
     res: Response,
     next: NextFunction
   ): Promise<any> => {
     try {
-      const data = await this.UserService.newUser(req.body);
+      const data = await this.UserService.new(req.body);
       res.status(HttpStatus.CREATED).json({
         code: HttpStatus.CREATED,
         data: data,
@@ -76,19 +58,13 @@ class UserController {
     }
   };
 
-  /**
-   * Controller to update a user
-   * @param  {object} Request - request object
-   * @param {object} Response - response object
-   * @param {Function} NextFunction
-   */
-  public updateUser = async (
+  public update = async (
     req: Request,
     res: Response,
     next: NextFunction
   ): Promise<any> => {
     try {
-      const data = await this.UserService.updateUser(req.params._id, req.body);
+      const data = await this.UserService.update(req.params._id, req.body);
       res.status(HttpStatus.ACCEPTED).json({
         code: HttpStatus.ACCEPTED,
         data: data,
@@ -99,19 +75,13 @@ class UserController {
     }
   };
 
-  /**
-   * Controller to delete a single user
-   * @param  {object} Request - request object
-   * @param {object} Response - response object
-   * @param {Function} NextFunction
-   */
-  public deleteUser = async (
+  public delete = async (
     req: Request,
     res: Response,
     next: NextFunction
   ): Promise<any> => {
     try {
-      await this.UserService.deleteUser(req.params._id);
+      await this.UserService.delete(req.params._id);
       res.status(HttpStatus.OK).json({
         code: HttpStatus.OK,
         data: {},
