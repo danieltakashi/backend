@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import UserService from '../../../tests/src/services/user.service';
+import UserService from './user.service';
 import mongoose from 'mongoose';
 
 import dotenv from 'dotenv';

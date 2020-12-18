@@ -25,7 +25,10 @@ class Database {
         useNewUrlParser: true,
         useUnifiedTopology: true
       });
-      this.logger.info('Connected to the database.');
+
+      if (['dev', 'development'].some(env => env === process.env.NODE_ENV)) {
+        this.logger.info('Connected to the database.');
+      }
     } catch (error) {
       this.logger.error('Could not connect to the database.', error);
     }
