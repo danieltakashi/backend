@@ -4,7 +4,6 @@ import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
 
 class AuthenticationController {
-
   public login = async (
     req: Request,
     res: Response,
@@ -13,9 +12,9 @@ class AuthenticationController {
     try {
       const { user, password } = req.body;
 
-      if(user === 'user' && password === '123') {
+      if (user === 'user' && password === '123') {
         const token = jwt.sign({ user }, process.env.SECRET, {
-          expiresIn: 300  // expiration time == 5min
+          expiresIn: 300 // expiration time == 5min
         });
 
         res.status(HttpStatus.OK).json({
@@ -26,7 +25,7 @@ class AuthenticationController {
       } else {
         res.status(HttpStatus.BAD_REQUEST).json({
           code: HttpStatus.BAD_REQUEST,
-          data: "",
+          data: '',
           message: 'Authentication Error'
         });
       }

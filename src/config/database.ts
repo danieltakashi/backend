@@ -10,9 +10,10 @@ class Database {
     this.DATABASE =
       process.env.NODE_ENV === 'test'
         ? process.env.DATABASE_TEST
-          : process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'development'
-            ? process.env.DATABASE_DEVELOPMENT
-              : process.env.DATABASE;
+        : process.env.NODE_ENV === 'dev' ||
+          process.env.NODE_ENV === 'development'
+        ? process.env.DATABASE_DEVELOPMENT
+        : process.env.DATABASE;
 
     this.logger = Logger.logger;
   }
@@ -26,7 +27,7 @@ class Database {
         useUnifiedTopology: true
       });
 
-      if (['dev', 'development'].some(env => env === process.env.NODE_ENV)) {
+      if (['dev', 'development'].some((env) => env === process.env.NODE_ENV)) {
         this.logger.info('Connected to the database.');
       }
     } catch (error) {

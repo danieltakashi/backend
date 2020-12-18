@@ -5,7 +5,6 @@ import app from '../index';
 
 describe('APIs Test', () => {
   before((done) => {
-
     done();
   });
 
@@ -61,7 +60,7 @@ describe('APIs Test', () => {
           expect(res.body.data).to.be.an('string');
 
           const { message } = res.body;
-          expect(message).to.be.equal("jwt malformed");
+          expect(message).to.be.equal('jwt malformed');
           done();
         });
     });
@@ -76,7 +75,7 @@ describe('APIs Test', () => {
           expect(res.body.data).to.be.an('undefined');
 
           const { message } = res.body;
-          expect(message).to.be.equal("Authorization token is required");
+          expect(message).to.be.equal('Authorization token is required');
           done();
         });
     });

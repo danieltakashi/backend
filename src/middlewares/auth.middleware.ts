@@ -10,10 +10,10 @@ export const userAuth = async (
 ): Promise<void> => {
   try {
     const token = req.header('Authorization');
-    if ( !token ) {
+    if (!token) {
       throw {
         code: HttpStatus.BAD_REQUEST,
-        data: "",
+        data: '',
         message: 'Authorization token is required'
       };
     }
