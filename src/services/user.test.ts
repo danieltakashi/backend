@@ -29,7 +29,7 @@ describe('User Service', () => {
 
   describe('Get Users', () => {
     it('should return empty array', async () => {
-      const result = await new UserService().getAllUsers();
+      const result = await new UserService().getAll();
       expect(result).to.be.an('array');
     });
   });

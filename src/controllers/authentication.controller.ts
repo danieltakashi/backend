@@ -26,7 +26,7 @@ class AuthenticationController {
       } else {
         res.status(HttpStatus.BAD_REQUEST).json({
           code: HttpStatus.BAD_REQUEST,
-          data: {},
+          data: "",
           message: 'Authentication Error'
         });
       }

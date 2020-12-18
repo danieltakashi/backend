@@ -13,12 +13,12 @@ export const userAuth = async (
     if ( !token ) {
       throw {
         code: HttpStatus.BAD_REQUEST,
+        data: "",
         message: 'Authorization token is required'
       };
     }
 
     const { user }: any = await jwt.verify(token, process.env.SECRET);
-    console.log(user)
 
     res.locals.user = user;
     res.locals.token = token;
