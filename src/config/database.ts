@@ -18,7 +18,7 @@ export class Database {
         ? process.env.DATABASE_DEVELOPMENT
         : process.env.DATABASE;
 
-    this.inMemory = process.env.IN_MEMORY_MONGO === 'true';
+    this.inMemory = process.env.IN_MEMORY_MONGO === '1';
 
     this.logger = Logger.logger;
   }
