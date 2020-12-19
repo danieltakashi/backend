@@ -1,8 +1,9 @@
 import { expect } from 'chai';
 import request from 'supertest';
-import mongoose from 'mongoose';
-
 import app from '../index';
+
+import { mongoose } from '../helpers/mongoose.mock'
+
 
 describe('APIs Test', () => {
   before((done) => {
