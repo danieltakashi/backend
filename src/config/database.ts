@@ -1,9 +1,12 @@
 import mongoose from 'mongoose';
 import Logger from './logger';
+import { MongoMemoryServer } from 'mongodb-memory-server';
 
-class Database {
+export class Database {
   private DATABASE: string;
   private logger;
+  private server;
+  private inMemory = false;
 
   constructor() {
     // Replace database value in the .env file with your database config url
@@ -15,11 +18,18 @@ class Database {
         ? process.env.DATABASE_DEVELOPMENT
         : process.env.DATABASE;
 
+    this.inMemory = process.env.IN_MEMORY_MONGO === 'true';
+
     this.logger = Logger.logger;
   }
 
   public initializeDatabase = async (): Promise<void> => {
     try {
+      if (this.inMemory) {
+        this.server = new MongoMemoryServer();
+        this.DATABASE = await this.server.getUri();
+      }
+
       await mongoose.connect(this.DATABASE, {
         useFindAndModify: false,
         useCreateIndex: true,

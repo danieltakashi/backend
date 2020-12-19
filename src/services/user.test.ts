@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { mongoose } from '../helpers/mongoose.mock'
+import { mongoose } from '../helpers/mongoose.mock';
 import UserService from './user.service';
 import dotenv from 'dotenv';
 dotenv.config();
