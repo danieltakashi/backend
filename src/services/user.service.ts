@@ -1,7 +1,7 @@
 import User from '../models/user.model';
 import { IUser } from '../interfaces/user.interface';
 
-class UserService {
+export class UserService {
   public getAll = async (): Promise<IUser[]> => {
     const data = await User.find();
     return data;

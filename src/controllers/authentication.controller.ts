@@ -3,7 +3,7 @@ import HttpStatus from 'http-status-codes';
 import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
 
-class AuthenticationController {
+export class AuthenticationController {
   public login = async (
     req: Request,
     res: Response,

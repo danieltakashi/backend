@@ -4,7 +4,7 @@ import userService from '../services/user.service';
 
 import { Request, Response, NextFunction } from 'express';
 
-class UserController {
+export class UserController {
   public UserService = new userService();
 
   public getAll = async (

@@ -6,7 +6,7 @@ import HttpStatus from 'http-status-codes';
 import Logger from '../config/logger';
 import { Request, Response, NextFunction } from 'express';
 
-class ErrorMiddleware {
+export class ErrorMiddleware {
   private logger;
 
   constructor() {
